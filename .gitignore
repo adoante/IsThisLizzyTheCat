@@ -1,3 +1,4 @@
 dataset
-images
 *.h5
+saved_model
+web_model

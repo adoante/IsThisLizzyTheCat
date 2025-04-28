@@ -21,12 +21,12 @@ def preprocess_image(image_path):
 
     return image
 
-image_path = "dataset/test/my_cat/MVIMG_20190701_094040.jpg"
+image_path = "images/PXL_20240201_163549345.jpg"
 
 # Preprocess image
 processed_image = preprocess_image(image_path)
 
-# Prepare the input data as a dictionary (assuming the model expects a key called "input")
+# Prepare the input data as a dictionary
 inputs = {"image": [processed_image]}
 
 # Submit inference job
@@ -42,7 +42,7 @@ assert isinstance(inference_job, hub.InferenceJob)
 h5_file_path = "results_dataset.h5"
 
 # Download inference results dataset to specific folder
-#inference_job.download_output_data(h5_file_path)
+inference_job.download_output_data(h5_file_path)
 
 # Open the H5 file
 with h5py.File(h5_file_path, "r") as f:
